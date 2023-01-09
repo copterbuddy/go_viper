@@ -88,6 +88,7 @@ jobs:
           git config user.email "copterbuddy@gmail.com"
           sed -i -E "s/ghcr.io\/copterbuddy\/go_viper.*$/ghcr.io\/copterbuddy\/go_viper:${GITHUB_SHA}/" dev/goviper-service-spec.yaml
           git add dev/goviper-service-spec.yaml
+          git status
           git commit -m "🤖 change docker image version to ${GITHUB_SHA}"
       - name: push changes
         uses: ad-m/github-push-action@master
