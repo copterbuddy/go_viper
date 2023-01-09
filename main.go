@@ -16,9 +16,10 @@ func main() {
 	r.GET("/myconf", getConf)
 	r.GET("/", helloWorld)
 
-	fmt.Printf("Servier started on port %v", viper.GetString("app.port"))
+	port := viper.GetString("app.port")
+	fmt.Printf("Servier started on port %v", port)
 	fmt.Println()
-	r.Run(fmt.Sprintf(":%v", viper.GetString("app.port")))
+	r.Run(fmt.Sprintf(":%v", port))
 }
 
 func initConfig() {
