@@ -24,7 +24,7 @@ spec:
           name: goviper
           imagePullPolicy: Always
           ports:
-            - containerPort: 8080
+            - containerPort: 30001
           resources:
             requests:
               memory: "256Mi"
@@ -35,7 +35,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /myconf
-              port: 8080
+              port: 30001
             initialDelaySeconds: 20
             periodSeconds: 10
           env:
@@ -100,7 +100,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - port: 8080
+    - port: 30001
   selector:
     app: goviper
 ---
