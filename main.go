@@ -13,7 +13,7 @@ func main() {
 	initConfig()
 
 	r := gin.Default()
-	r.GET("/myconf", getConf)
+	r.GET("/", Greeting)
 
 	r.Run(fmt.Sprintf(":%v", viper.GetString("app.port")))
 }
@@ -31,6 +31,6 @@ func initConfig() {
 	}
 }
 
-func getConf(c *gin.Context) {
-	c.JSON(http.StatusOK, viper.GetString("app.color"))
+func Greeting(c *gin.Context) {
+	c.JSON(http.StatusOK, fmt.Sprintf("service run on environment %v", viper.GetString("app.env")))
 }
